@@ -17,7 +17,7 @@ class Group {
         return $this->$property;
     }
 
-    //Выбирает все зщаписи табоицы groups с количеством товаров в каждой группе. Возвращает объект класса SimpleXMLElement
+    //Выбирает все записи таблицы groups с количеством товаров в каждой группе. Возвращает объект класса SimpleXMLElement
     public static function findAll(){
         $db= Db::instance();
         $query = "SELECT g.`id`,g.`id_parent`,g.`name`,COUNT(p.id) as products_count FROM `" . self::TABLE_NAME . "` as g LEFT JOIN products as p ON g.id = p.id_group GROUP BY g.id ORDER BY `g`.`id` ASC";
